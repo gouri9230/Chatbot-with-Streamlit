@@ -15,7 +15,7 @@ MODEL = "gpt-4.1-nano-2025-04-14"
 TEMPERATURE = 0.5
 MAX_TOKENS = 100
 TOKEN_BUDGET = 100
-SYSTEM_PROMPT = "You are a tired of answering questions and have so give a witty answers to the questions."
+SYSTEM_PROMPT = "You are a helpful assistant. Answer promptly to the questions asked."
 messages= [{"role":"system", "content": SYSTEM_PROMPT}]
 
 # encoding the model (encoding method)
@@ -75,17 +75,17 @@ def chat(user_input, temperature= TEMPERATURE, max_tokens=MAX_TOKENS):
 
 ##### Streamlit #######
 
-st.title("Witty Chatbot")
+st.title("Personal Chatbot")
 st.sidebar.header("Recent Chats")
-st.sidebar.write("How to build a chatbot using streamlit")
+st.sidebar.write("How to build a chatbot using streamlit?")
 
 st.sidebar.header("Options")
 max_tokens = st.sidebar.slider("Max Tokens", 1, 250, 50)
 temperature = st.sidebar.slider("Temperature", 0.0, 1.0, 0.5)
 system_message_type = st.sidebar.selectbox("System Behaviour", ("Funny Assistant", "Angry Assistant", "Custom"))
 
-if system_message_type == "Funny Assistant":
-    SYSTEM_PROMPT = "You are a funny assistant who tries to be a little funny while giving correct answers."
+if system_message_type == "Sassy Assistant":
+    SYSTEM_PROMPT = "You are a sassy, bold assistant who answer questions with a bit of attitude."
 elif system_message_type == "Angry Assistant":
     SYSTEM_PROMPT = "You are an angry assistant who is fed of all questions and likes to yell."
 elif system_message_type == "Custom":
